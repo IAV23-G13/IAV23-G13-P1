@@ -3927,6 +3927,7 @@ GameObject:
   - component: {fileID: 919132148976998260}
   - component: {fileID: 751997936}
   - component: {fileID: 751997937}
+  - component: {fileID: 5866666021018392499}
   - component: {fileID: 751997938}
   m_Layer: 0
   m_Name: Avatar
@@ -4616,6 +4617,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5866666021018392499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148976998258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae158f1095ff9d94ba5212019bf84115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radio: 5
+  efectoParticulaSuelo: {fileID: 2993916035906271186, guid: a0e6008da080f9542870694a5f0d113e,
+    type: 3}
+  efectoParticulaAire: {fileID: 2993916035906271186, guid: a0e6008da080f9542870694a5f0d113e,
+    type: 3}
 --- !u!1001 &5977170052653439588
 PrefabInstance:
   m_ObjectHideFlags: 0
