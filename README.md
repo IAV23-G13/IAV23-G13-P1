@@ -15,13 +15,11 @@ La idea principal de la práctica es conseguir los siguientes comportamientos:
  3. **Las ratas** han de moverse erráticamente cuando *el flautista no toca la flauta*
  4. **Las ratas**, al escuchar la flauta, tienen que *seguir al flautista*, y *ordenarse entre ellas en formación*. Tienen que tener separación entre ellas y quedarse a una distancia del flautista.
 
-...
 
 ## Punto de partida
 Se parte de un proyecto base de Unity proporcionado por el profesor aquí:
 https://github.com/Narratech/IAV-P1
 
-Consiste en... 
 
 ## Diseño de la solución
 
