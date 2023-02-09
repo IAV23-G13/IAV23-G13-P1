@@ -20,6 +20,11 @@ La idea principal de la práctica es conseguir los siguientes comportamientos:
 Se parte de un proyecto base de Unity proporcionado por el profesor aquí:
 https://github.com/Narratech/IAV-P1
 
+Se dispone de una escena en Unity que consta de un entorno por el cual el jugador podrá moverse; además de una serie de obstáculos, como arboles o casas. También contiene las entidades del perro, las ratas y el jugador; el perro no hace nada 
+al igual que las ratas, pero estas últimas puedes aumentar o reducir su nº con las teclas O y P respectivamente (cuando se le añadan los scripts a estas entidades se moveran automaticamente siguiendo al jugador o merodeando por el entorno); el jugador, sin embargo, podrá moverse con las teclas WASD y tocar la flauta con el espacio. 
+
+Se puede cambiar la posicion de la cámara con N, el ratio (FPS) con F y recargar la escena con R.
+Hay scripts para darles los comportamientos necesarios a las entidades (los cuales hay que completar).
 
 ## Diseño de la solución
 
