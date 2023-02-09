@@ -22,6 +22,8 @@ namespace UCM.IAV.Movimiento
         /// </summary>
         /// <returns></returns>
 
+        public float maxSpeed;
+        public float maxAcceleration;
 
         // El radio para llegar al objetivo
         public float rObjetivo;
@@ -37,8 +39,40 @@ namespace UCM.IAV.Movimiento
         float timeToTarget = 0.1f;
         public override Direccion GetDireccion()
         {
-            // IMPLEMENTAR llegada
-            return new Direccion();
+            var resultado = new Direccion();
+
+            float targetSpeed = maxSpeed;
+
+            var dir = objetivo.transform.position - this.transform.position;
+            var dist = dir.magnitude;
+
+            if (dist < rObjetivo)
+            {
+                return resultado;
+            }
+
+            if (dist < rRalentizado)
+            {
+                targetSpeed = maxSpeed * dist / rRalentizado;
+            }
+
+            var targetVelocity = dir.normalized;
+
+            targetVelocity *= targetSpeed;
+
+            resultado.lineal = targetVelocity - this.GetComponent<Rigidbody>().velocity;
+
+            resultado.lineal /= timeToTarget;
+
+            if (resultado.lineal.magnitude > maxAcceleration)
+            {
+                resultado.lineal.Normalize();
+                resultado.lineal *= maxAcceleration;
+            }
+
+            resultado.angular = 0;
+            return resultado;
+
         }
 
 

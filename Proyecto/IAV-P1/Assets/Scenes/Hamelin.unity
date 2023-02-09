@@ -4641,6 +4641,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1035885287415463095, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: objetivo
+      value: 
+      objectReference: {fileID: 919132148976998258}
     - target: {fileID: 3861295050334874256, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: m_Name
@@ -4705,6 +4710,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -149.631
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077256508132579821, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: objetivo
+      value: 
+      objectReference: {fileID: 919132148976998258}
+    - target: {fileID: 8077256508132579821, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: rObjetivo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077256508132579821, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: fRalentizado
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077256508132579821, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: rRalentizado
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
