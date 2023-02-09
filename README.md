@@ -10,7 +10,7 @@ Esta práctica consiste en realizar un prototipo de IA dentro de un pequeño ent
 
 La idea principal de la práctica es conseguir los siguientes comportamientos:
 
- 1. **El perro** deberá de *seguir al flautista* de manera que prediga el movimiento del flautista, y quedarse a una distancia de él.
+ 1. **El perro** deberá de *perseguir al flautista* de manera que prediga el movimiento del flautista, y quedarse a una distancia de él.
  2. **El perro** ha de huir si *hay tres o más ratas cerca suya*.
  3. **Las ratas** han de moverse erráticamente cuando *el flautista no toca la flauta*
  4. **Las ratas**, al escuchar la flauta, tienen que *seguir al flautista*, y *ordenarse entre ellas en formación*. Tienen que tener separación entre ellas y quedarse a una distancia del flautista.
@@ -30,7 +30,7 @@ Hay scripts para darles los comportamientos necesarios a las entidades (los cual
 
 La manera en la que vamos a afrontar esta práctica es la siguiente:
 
- - Completaremos **el script de seguimiento** que se le aplicará tanto al perro como a las ratas, de manera que puedan *seguir al objetivo*.
+ - Completaremos **el script de seguimiento** que se le aplicará tanto al perro como a las ratas, de manera que puedan *seguir o perseguir al objetivo*.
 
  
  - También completaremos **el script** que lé de a las ratas un **movimiento errático** para cuando no estén bajo el control del flautista.
