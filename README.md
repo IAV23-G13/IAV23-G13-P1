@@ -128,7 +128,7 @@ Las tareas se han realizado y el esfuerzo ha sido repartido entre los autores.
 |:-:|:--|:-:|
 | ✔ | Diseño: Primer borrador | 08/02/2023 |
 |  | Característica A: Mundo virtual | --/--/---- |
-|  | Característica B: Perro sigue al flautista| --/--/---- |
+|  | Característica B: Perro persigue al flautista| --/--/---- |
 |  | Característica C: Perro huye de ratas| --/--/---- |
 |  | Característica D: Ratas merodeadoras| --/--/---- |
 |  | Característica E: Ratas hipnotizadas| --/--/---- |
