@@ -107,7 +107,7 @@ Pseudocódigo del algoritmo de huida:
 
 Diagrama de la máquina de estado del perro
 
-![Máquina de estados del perro](https://cdn.discordapp.com/attachments/1072955659827556384/1072964346335989841/image.png)
+![Máquina de estados del perro](https://cdn.discordapp.com/attachments/1072955659827556384/1073284400315379733/image.png)
 Diagrama de la máquina de estado de las ratas
 ![Máquina de estado de las ratas](https://cdn.discordapp.com/attachments/1072955659827556384/1072965194038390824/image.png)
 
