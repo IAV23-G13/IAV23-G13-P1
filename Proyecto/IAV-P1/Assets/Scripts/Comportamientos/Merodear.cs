@@ -13,6 +13,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace UCM.IAV.Movimiento
 {
     /// <summary>
@@ -32,7 +33,19 @@ namespace UCM.IAV.Movimiento
         Direccion lastDir = new Direccion();
 
         public override Direccion GetDireccion(){
+            
+            //float rndtime = random float entre el tiempo maximo y el minimo
+            //var randomdir = transform entre 0 y 1
+            //float 
+
             // IMPLEMENTAR merodear
+            //if(t>)
+            //var dir = this.transform.position*randomdir;
+
+            //si ha llegado el tiempo a superar el rndtime, reseteamos el tiempo y cambiamos la direccion
+
+
+
             return new Direccion();
         }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657695, g: 0.49641138, b: 0.5748176, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1268,6 +1268,33 @@ Transform:
   m_Father: {fileID: 413117125}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &485650914 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4131845400584305642, guid: 5175d5736886518439bf9a2956a122b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 432478609848264427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &485650918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485650914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95b35a33935bb244888b14d6114c508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peso: 1
+  prioridad: 1
+  objetivo: {fileID: 919132148976998258}
+  maxSpeed: 2
+  maxAcceleration: 2
+  rObjetivo: 2
+  rRalentizado: 2
+  fRalentizado: 2
+  distancia: 7
 --- !u!1 &525915398
 GameObject:
   m_ObjectHideFlags: 0

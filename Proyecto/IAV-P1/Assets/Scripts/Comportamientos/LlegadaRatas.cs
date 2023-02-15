@@ -15,7 +15,7 @@ namespace UCM.IAV.Movimiento
     /// <summary>
     /// Clase para modelar el comportamiento de SEGUIR a otro agente
     /// </summary>
-    public class Llegada : ComportamientoAgente
+    public class LlegadaRatas : ComportamientoAgente
     {
         /// <summary>
         /// Obtiene la dirección
@@ -37,17 +37,30 @@ namespace UCM.IAV.Movimiento
 
         public int distancia = 7;
 
+        
+
         // El tiempo en el que conseguir la aceleracion objetivo
         float timeToTarget = 0.1f;
         public override Direccion GetDireccion()
         {
             var resultado = new Direccion();
 
+            
+
             float targetSpeed = maxSpeed;
+
+
+            //TocarFlauta flau = objetivo.getComponent<TocarFlauta>();
+
+            //Hacer que el objetivo al que siguen sea la ultima rata de la lista a excepcion de la primera que sigue al jugador
+            //usando la lista de ratas del TocarFlauta
 
             var dir = objetivo.transform.position - this.transform.position;
             var dist = dir.magnitude;
 
+
+            //Si esta mas lejos de la distancia y si la flauta esta tocandose seguirá al juagor
+            //if (dist < distancia &&flau.isActive)
             if (dist < distancia)
             {
                 return resultado;
