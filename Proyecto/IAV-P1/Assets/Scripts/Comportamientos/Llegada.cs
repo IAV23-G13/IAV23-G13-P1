@@ -30,7 +30,9 @@ namespace UCM.IAV.Movimiento
 
         //Rat number
         [SerializeField]
-        private int ratNumber = 0;
+        private int nRatsDetected = 0;
+        [SerializeField]
+        private int nRatsToScare = 3;
 
         //Last rat position to escape
         private Vector3 lastRatPos;
@@ -52,11 +54,11 @@ namespace UCM.IAV.Movimiento
             float targetSpeed = maxSpeed;
 
             var dir = Vector3.zero;
-            if (ratNumber <= 2) dir = objetivo.transform.position - this.transform.position;
+            if (nRatsDetected < nRatsToScare) dir = objetivo.transform.position - this.transform.position;
             else dir = this.transform.position - lastRatPos;
             var dist = dir.magnitude;
 
-            if (ratNumber <= 2 && dist < distancia)
+            if (nRatsDetected < nRatsToScare && dist < distancia)
             {
                 return resultado;
             }
@@ -90,7 +92,7 @@ namespace UCM.IAV.Movimiento
         void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Rat")){
-                ratNumber++;
+                nRatsDetected++;
                 lastRatPos = other.gameObject.transform.position;
             }
         }
@@ -98,7 +100,7 @@ namespace UCM.IAV.Movimiento
         void OnTriggerExit(Collider other)
         {
             if (other.gameObject.CompareTag("Rat")){
-                ratNumber--;
+                nRatsDetected--;
             }
         }
 
