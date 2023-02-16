@@ -18,7 +18,8 @@ namespace UCM.IAV.Movimiento
     {
         public float radio = 5f;
 
-        private List<GameObject> rats = new List<GameObject>();
+        //private List<GameObject> rats = new List<GameObject>();
+        public List<GameObject> rats = new List<GameObject>();
 
         public GameObject efectoParticulaSuelo;
         public GameObject efectoParticulaAire;
@@ -89,6 +90,7 @@ namespace UCM.IAV.Movimiento
             {
                 activateFollowing(ratColl.gameObject);
                 rats.Add(ratColl.gameObject);
+                Debug.Log("DEntro");
             }
         }
 
@@ -107,22 +109,24 @@ namespace UCM.IAV.Movimiento
         {
             // Activamos o desactivamos los comportamientos que ocurren si se toca la flauta
             rat.GetComponent<Merodear>().enabled = false;
-
-            rat.GetComponent<Separacion>().enabled = true;
+                     
+            rat.GetComponent<Separacion>().enabled = true;                     
             //perroSepar.enabled = true;
 
-            Llegada l = rat.GetComponent<Llegada>();
+            LlegadaRatas l = rat.GetComponent<LlegadaRatas>();
 
             if (l.objetivo == null)
                 l.objetivo = transform.gameObject;
             l.enabled = true;
+            
         }
 
         private void deactivateFollowing(GameObject rat)
         {
             // Activamos o desactivamos los comportamientos que ocurren si no se toca la flauta
             rat.GetComponent<Merodear>().enabled = true;
-            rat.GetComponent<Llegada>().enabled = false;
+            rat.GetComponent<Merodear>().cambioestado = true;
+            rat.GetComponent<LlegadaRatas>().enabled = false;
             rat.GetComponent<Separacion>().enabled = false;
             //perroSepar.enabled = false;
         }

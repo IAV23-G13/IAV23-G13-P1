@@ -37,6 +37,8 @@ namespace UCM.IAV.Movimiento
 
         public int distancia = 7;
 
+        TocarFlauta flau;
+        Merodear mero;
         
 
         // El tiempo en el que conseguir la aceleracion objetivo
@@ -50,7 +52,11 @@ namespace UCM.IAV.Movimiento
             float targetSpeed = maxSpeed;
 
 
-            //TocarFlauta flau = objetivo.getComponent<TocarFlauta>();
+
+            flau = objetivo.GetComponent<TocarFlauta>();
+            mero = this.GetComponent<Merodear>();
+
+            
 
             //Hacer que el objetivo al que siguen sea la ultima rata de la lista a excepcion de la primera que sigue al jugador
             //usando la lista de ratas del TocarFlauta
@@ -60,32 +66,35 @@ namespace UCM.IAV.Movimiento
 
 
             //Si esta mas lejos de la distancia y si la flauta esta tocandose seguirá al juagor
-            //if (dist < distancia &&flau.isActive)
-            if (dist < distancia)
+            //if (flau.isActive)
+            if (!mero.enabled)
             {
-                return resultado;
+                if (dist < distancia)
+                {
+                    return resultado;
+                }
+
+                if (dist < rRalentizado)
+                {
+                    targetSpeed = maxSpeed * dist / rRalentizado;
+                }
+
+                var targetVelocity = dir.normalized;
+
+                targetVelocity *= targetSpeed;
+
+                resultado.lineal = targetVelocity - this.GetComponent<Rigidbody>().velocity;
+
+                resultado.lineal /= timeToTarget;
+
+                if (resultado.lineal.magnitude > maxAcceleration)
+                {
+                    resultado.lineal.Normalize();
+                    resultado.lineal *= maxAcceleration;
+                }
+
+                resultado.angular = 0;
             }
-
-            if (dist < rRalentizado)
-            {
-                targetSpeed = maxSpeed * dist / rRalentizado;
-            }
-
-            var targetVelocity = dir.normalized;
-
-            targetVelocity *= targetSpeed;
-
-            resultado.lineal = targetVelocity - this.GetComponent<Rigidbody>().velocity;
-
-            resultado.lineal /= timeToTarget;
-
-            if (resultado.lineal.magnitude > maxAcceleration)
-            {
-                resultado.lineal.Normalize();
-                resultado.lineal *= maxAcceleration;
-            }
-
-            resultado.angular = 0;
             return resultado;
 
         }

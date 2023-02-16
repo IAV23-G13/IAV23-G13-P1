@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657725, g: 0.49641198, b: 0.5748184, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1295,6 +1295,42 @@ MonoBehaviour:
   rRalentizado: 2
   fRalentizado: 2
   distancia: 7
+--- !u!114 &485650920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485650914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff165d9358587c146b7cc6e66cbdba1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peso: 1
+  prioridad: 1
+  objetivo: {fileID: 0}
+  tiempoMaximo: 2
+  tiempoMinimo: 1
+  cambioestado: 0
+--- !u!114 &485650921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485650914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1fd1036b200c341a7549fe5c2119d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peso: 1
+  prioridad: 1
+  objetivo: {fileID: 0}
+  targEmpty: {fileID: 0}
+  umbral: 0
+  decayCoefficient: 0
 --- !u!1 &525915398
 GameObject:
   m_ObjectHideFlags: 0
@@ -4705,6 +4741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radio: 5
+  rats: []
   efectoParticulaSuelo: {fileID: 2993916035906271186, guid: a0e6008da080f9542870694a5f0d113e,
     type: 3}
   efectoParticulaAire: {fileID: 2993916035906271186, guid: a0e6008da080f9542870694a5f0d113e,

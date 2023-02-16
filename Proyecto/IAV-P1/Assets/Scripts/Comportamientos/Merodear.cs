@@ -9,8 +9,10 @@
    Contacto: email@federicopeinado.com
 */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 
@@ -30,14 +32,56 @@ namespace UCM.IAV.Movimiento
         float t = 3.0f;
         float actualT = 2.0f;
 
+        float speed=0.5f;
+        float maxAcceleration=1.0f;
+
+        public bool cambioestado = false;
+
+
         Direccion lastDir = new Direccion();
 
         public override Direccion GetDireccion(){
-            
-            //float rndtime = random float entre el tiempo maximo y el minimo
-            //var randomdir = transform entre 0 y 1
-            //float 
+            //System.Random rn = new System.Random();
+            if (cambioestado)
+            {
+               
+                cambioestado = false;
+            }
 
+            float rndtime = UnityEngine.Random.Range(tiempoMinimo, tiempoMaximo); ; //random float entre el tiempo maximo y el minimo
+
+            if (t > rndtime)
+            {
+
+                float randomdirX = UnityEngine.Random.Range(-1, 2);
+                float randomdirY = UnityEngine.Random.Range(-1, 2);
+                float randomdirZ = UnityEngine.Random.Range(-1, 2);
+
+                UnityEngine.Debug.Log(randomdirX);
+                Direccion newdir = lastDir;
+
+                newdir.lineal.x = this.transform.position.x + randomdirX;
+                newdir.lineal.y = this.transform.position.y + randomdirY;
+                newdir.lineal.z = this.transform.position.z + randomdirZ;
+                t = 0;
+
+               
+               //newdir.lineal = this.GetComponent<Rigidbody>().velocity;
+
+               newdir.lineal *= speed;
+
+                if (newdir.lineal.magnitude > maxAcceleration)
+                {
+                    newdir.lineal.Normalize();
+                    newdir.lineal *= maxAcceleration;
+                    UnityEngine.Debug.Log("mueve");
+                }
+                newdir.lineal *= maxAcceleration;
+                newdir.angular = 0;
+
+
+                return newdir;
+            }
             // IMPLEMENTAR merodear
             //if(t>)
             //var dir = this.transform.position*randomdir;
@@ -45,8 +89,12 @@ namespace UCM.IAV.Movimiento
             //si ha llegado el tiempo a superar el rndtime, reseteamos el tiempo y cambiamos la direccion
 
 
-
-            return new Direccion();
+            else
+            {
+                t += 0.01f;
+                return new Direccion();
+            }
+            
         }
 
     }
