@@ -31,6 +31,9 @@ namespace UCM.IAV.Movimiento
         //Rat number
         [SerializeField]
         private int ratNumber = 0;
+
+        //Last rat position to escape
+        private Vector3 lastRatPos;
         // El radio en el que se empieza a ralentizarse
 
         //Tiene que acceder a la lista de entidades para que el objetivo a seguir sea la ultima rata en vez del avatar
@@ -82,7 +85,7 @@ namespace UCM.IAV.Movimiento
 
         }   
 
-        private Vector3 lastRatPos;
+
 
         void OnTriggerEnter(Collider other)
         {
