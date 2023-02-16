@@ -53,9 +53,9 @@ namespace UCM.IAV.Movimiento
             if (t > rndtime)
             {
 
-                float randomdirX = UnityEngine.Random.Range(-1, 2);
-                float randomdirY = UnityEngine.Random.Range(-1, 2);
-                float randomdirZ = UnityEngine.Random.Range(-1, 2);
+                float randomdirX = UnityEngine.Random.Range(-5, 5);
+                float randomdirY = UnityEngine.Random.Range(-5, 5);
+                float randomdirZ = UnityEngine.Random.Range(-5, 5);
 
                 UnityEngine.Debug.Log(randomdirX);
                 Direccion newdir = lastDir;
@@ -64,19 +64,21 @@ namespace UCM.IAV.Movimiento
                 newdir.lineal.y = this.transform.position.y + randomdirY;
                 newdir.lineal.z = this.transform.position.z + randomdirZ;
                 t = 0;
+                var dir = newdir.lineal - this.transform.position;
 
-               
-               //newdir.lineal = this.GetComponent<Rigidbody>().velocity;
+                //newdir.lineal = this.GetComponent<Rigidbody>().velocity;
 
-               newdir.lineal *= speed;
+
+
+                newdir.lineal = speed*dir.normalized;
 
                 if (newdir.lineal.magnitude > maxAcceleration)
                 {
                     newdir.lineal.Normalize();
                     newdir.lineal *= maxAcceleration;
-                    UnityEngine.Debug.Log("mueve");
+                   
                 }
-                newdir.lineal *= maxAcceleration;
+                
                 newdir.angular = 0;
 
 
