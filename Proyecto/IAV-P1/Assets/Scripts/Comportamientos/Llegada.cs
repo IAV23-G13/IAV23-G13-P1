@@ -80,9 +80,7 @@ namespace UCM.IAV.Movimiento
             resultado.angular = 0;
             return resultado;
 
-        }
-
-        //private Collider senser = gameObject.GetComponentInChildren<Collider>();
+        }   
 
         private Vector3 lastRatPos;
 
