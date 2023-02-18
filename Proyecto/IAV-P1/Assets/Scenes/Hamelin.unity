@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657695, g: 0.49641138, b: 0.5748176, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4831,13 +4831,38 @@ PrefabInstance:
     - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: maxSpeed
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: objetivo
       value: 
       objectReference: {fileID: 919132148976998258}
+    - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: distancia
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: rObjetivo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: fRalentizado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: rRalentizado
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: maxAcceleration
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 8077256508132579821, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: objetivo

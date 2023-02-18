@@ -73,12 +73,7 @@ namespace UCM.IAV.Movimiento
 
             resultado.lineal = targetVelocity - thisSpeed;
 
-            timeToTarget = dist / thisSpeed.magnitude;
-
-            if (timeToTarget > 10)
-            {
-                timeToTarget = 10;
-            }
+            timeToTarget = dist / maxSpeed;
 
             //resultado.lineal /= timeToTarget;
 
@@ -112,8 +107,10 @@ namespace UCM.IAV.Movimiento
 
         protected virtual Vector3 GetObjective()
         {
-            if (nRatsDetected < nRatsToScare) return objetivo.transform.position;;
-            else return lastRatPos;
+            if (nRatsDetected < nRatsToScare)
+                return objetivo.transform.position;
+            else
+                return lastRatPos;
         }
     }
 }
