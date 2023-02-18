@@ -46,16 +46,13 @@ namespace UCM.IAV.Movimiento
         public int distancia = 7;
 
         // El tiempo en el que conseguir la aceleracion objetivo
-        float timeToTarget = 0.1f;
+        protected float timeToTarget = 0.1f;
         public override Direccion GetDireccion()
         {
             var resultado = new Direccion();
 
             float targetSpeed = maxSpeed;
-
-            var dir = Vector3.zero;
-            if (nRatsDetected < nRatsToScare) dir = objetivo.transform.position - this.transform.position;
-            else dir = this.transform.position - lastRatPos;
+            Vector3 dir = GetObjective() - this.transform.position;
             var dist = dir.magnitude;
 
             if (nRatsDetected < nRatsToScare && dist < distancia)
@@ -72,9 +69,18 @@ namespace UCM.IAV.Movimiento
 
             targetVelocity *= targetSpeed;
 
-            resultado.lineal = targetVelocity - this.GetComponent<Rigidbody>().velocity;
+            var thisSpeed = this.GetComponent<Rigidbody>().velocity;
 
-            resultado.lineal /= timeToTarget;
+            resultado.lineal = targetVelocity - thisSpeed;
+
+            timeToTarget = dist / thisSpeed.magnitude;
+
+            if (timeToTarget > 10)
+            {
+                timeToTarget = 10;
+            }
+
+            //resultado.lineal /= timeToTarget;
 
             if (resultado.lineal.magnitude > maxAcceleration)
             {
@@ -104,6 +110,10 @@ namespace UCM.IAV.Movimiento
             }
         }
 
-
+        protected virtual Vector3 GetObjective()
+        {
+            if (nRatsDetected < nRatsToScare) return objetivo.transform.position;;
+            else return lastRatPos;
+        }
     }
 }

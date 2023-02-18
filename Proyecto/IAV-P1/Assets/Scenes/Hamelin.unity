@@ -4828,6 +4828,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -149.631
       objectReference: {fileID: 0}
+    - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: objetivo
+      value: 
+      objectReference: {fileID: 919132148976998258}
     - target: {fileID: 8077256508132579821, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: objetivo
@@ -4848,8 +4858,7 @@ PrefabInstance:
       propertyPath: rRalentizado
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff744207c6a5044ab297c8fc4814fc0, type: 3}
 --- !u!23 &6021100666521978446
 MeshRenderer:
