@@ -42,16 +42,18 @@ namespace UCM.IAV.Movimiento
 
         public override Direccion GetDireccion(){
             //System.Random rn = new System.Random();
-            if (cambioestado)
-            {
+            //if (cambioestado)
+            //{
                
-                cambioestado = false;
-            }
+            //    cambioestado = false;
+            //}
 
             float rndtime = UnityEngine.Random.Range(tiempoMinimo, tiempoMaximo); ; //random float entre el tiempo maximo y el minimo
 
             if (t > rndtime)
             {
+                UnityEngine.Debug.Log(t);
+               
 
                 float randomdirX = UnityEngine.Random.Range(-5, 5);
                 float randomdirY = UnityEngine.Random.Range(-5, 5);
@@ -66,16 +68,18 @@ namespace UCM.IAV.Movimiento
                 t = 0;
                 var dir = newdir.lineal - this.transform.position;
 
-                //newdir.lineal = this.GetComponent<Rigidbody>().velocity;
 
 
+                
 
-                newdir.lineal = speed*dir.normalized;
+                newdir.lineal = dir.normalized;
+
+                
 
                 if (newdir.lineal.magnitude > maxAcceleration)
                 {
                     newdir.lineal.Normalize();
-                    newdir.lineal *= maxAcceleration;
+                    newdir.lineal /= maxAcceleration;
                    
                 }
                 
@@ -94,7 +98,7 @@ namespace UCM.IAV.Movimiento
             else
             {
                 t += 0.01f;
-                return new Direccion();
+                return lastDir;
             }
             
         }

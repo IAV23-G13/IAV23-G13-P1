@@ -21,6 +21,13 @@ namespace UCM.IAV.Movimiento
         /// Obtiene la dirección
         /// </summary>
         /// <returns></returns>
+        /// 
+
+        [SerializeField]
+        private int nRatsDetected = 0;
+
+        private Vector3 lastRatPos;
+
 
         public float maxSpeed;
         public float maxAcceleration;
@@ -62,6 +69,7 @@ namespace UCM.IAV.Movimiento
             //usando la lista de ratas del TocarFlauta
 
             var dir = objetivo.transform.position - this.transform.position;
+            //var dir = GetObjective() - this.transform.position;
             var dist = dir.magnitude;
 
 
@@ -97,6 +105,32 @@ namespace UCM.IAV.Movimiento
             }
             return resultado;
 
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Rat"))
+            {
+                nRatsDetected++;
+                lastRatPos = other.gameObject.transform.position;
+                Debug.Log("pillaRata");
+            }
+        }
+
+        void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("Rat"))
+            {
+                nRatsDetected--;
+            }
+        }
+
+        protected virtual Vector3 GetObjective()
+        {
+            if (nRatsDetected < 1 )
+                return objetivo.transform.position;
+            else
+                return lastRatPos;
         }
 
 

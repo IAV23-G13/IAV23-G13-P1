@@ -14,7 +14,7 @@ namespace UCM.IAV.Movimiento
 
         protected override Vector3 GetObjective()
         {
-            Debug.Log(objectiveRB.velocity);
+            //Debug.Log(objectiveRB.velocity);
 
             var prediccion = objectiveRB.velocity * timeToTarget;
             return objetivo.transform.position + prediccion;
