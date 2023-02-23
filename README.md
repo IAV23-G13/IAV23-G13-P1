@@ -117,7 +117,7 @@ Diagrama de la máquina de estado de las ratas
 
 ## Pruebas y métricas
 
-- [Vídeo con la batería de pruebas](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+- [Vídeo con la batería de pruebas](https://youtu.be/AGn-hzSmkSk)
 
 ## Ampliaciones
 
