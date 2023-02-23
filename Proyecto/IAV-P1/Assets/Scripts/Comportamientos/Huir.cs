@@ -24,47 +24,10 @@ namespace UCM.IAV.Movimiento
         /// <returns></returns>
         public override Direccion GetDireccion()
         {
-            if (nRatsDetected < nRatsToScare) this.peso = 0;
-            else this.peso = 1;
-
-
-            Debug.Log("HUIR active");
-            // IMPLEMENTAR HUIR
-            var resultado = new Direccion();
-
-            float targetSpeed = maxSpeed;
-            Vector3 dir = this.transform.position - lastRatPos;
-            var dist = dir.magnitude;
-
-
-            if (dist < rRalentizado)
-            {
-                targetSpeed = maxSpeed * dist / rRalentizado;
-            }
-
-            var targetVelocity = dir.normalized;
-
-            targetVelocity *= targetSpeed;
-
-            var thisSpeed = this.GetComponent<Rigidbody>().velocity;
-
-            resultado.lineal = targetVelocity - thisSpeed;
-
-            timeToTarget = dist / maxSpeed;
-
-            //resultado.lineal /= timeToTarget;
-
-            if (resultado.lineal.magnitude > maxAcceleration)
-            {
-                resultado.lineal.Normalize();
-                resultado.lineal *= maxAcceleration;
-            }
-
-            resultado.angular = 0;
-
-            
-
-            return resultado;
+            var dirLLegada = base.GetDireccion();
+            dirLLegada.lineal = -dirLLegada.lineal * 20;
+            dirLLegada.angular = -dirLLegada.angular;
+            return dirLLegada;
         }
     }
 }

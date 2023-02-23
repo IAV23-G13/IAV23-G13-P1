@@ -69,6 +69,8 @@ namespace UCM.IAV.Movimiento
             }
 
             resultado.angular = 0;
+            Debug.Log(this.gameObject.name + " "+ objetivo.name) ;
+            
             return resultado;
 
         }

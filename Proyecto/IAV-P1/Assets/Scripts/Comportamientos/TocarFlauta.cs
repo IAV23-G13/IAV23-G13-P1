@@ -113,7 +113,7 @@ namespace UCM.IAV.Movimiento
             rat.GetComponent<Separacion>().enabled = true;                     
             //perroSepar.enabled = true;
 
-            LlegadaRatas l = rat.GetComponent<LlegadaRatas>();
+            Llegada l = rat.GetComponent<Llegada>();
 
             if (l.objetivo == null)
                 l.objetivo = transform.gameObject;
@@ -125,8 +125,8 @@ namespace UCM.IAV.Movimiento
         {
             // Activamos o desactivamos los comportamientos que ocurren si no se toca la flauta
             rat.GetComponent<Merodear>().enabled = true;
-            rat.GetComponent<Merodear>().cambioestado = true;
-            rat.GetComponent<LlegadaRatas>().enabled = false;
+            
+            rat.GetComponent<Llegada>().enabled = false;
             rat.GetComponent<Separacion>().enabled = false;
             //perroSepar.enabled = false;
         }

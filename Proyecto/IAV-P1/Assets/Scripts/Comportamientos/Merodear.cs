@@ -35,7 +35,6 @@ namespace UCM.IAV.Movimiento
         float speed=0.5f;
         float maxAcceleration=1.0f;
 
-        public bool cambioestado = false;
 
 
         Direccion lastDir = new Direccion();
@@ -52,14 +51,14 @@ namespace UCM.IAV.Movimiento
 
             if (t > rndtime)
             {
-                UnityEngine.Debug.Log(t);
+                //UnityEngine.Debug.Log(t);
                
 
                 float randomdirX = UnityEngine.Random.Range(-5, 5);
                 float randomdirY = UnityEngine.Random.Range(-5, 5);
                 float randomdirZ = UnityEngine.Random.Range(-5, 5);
 
-                UnityEngine.Debug.Log(randomdirX);
+                //UnityEngine.Debug.Log(randomdirX);
                 Direccion newdir = lastDir;
 
                 newdir.lineal.x = this.transform.position.x + randomdirX;
