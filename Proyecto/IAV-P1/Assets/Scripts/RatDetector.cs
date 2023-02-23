@@ -6,6 +6,8 @@ public class RatDetector : MonoBehaviour
 {
     [SerializeField]
     int nRatsToScare = 2;
+    [SerializeField]
+    float radius = 2;
 
     UCM.IAV.Movimiento.Persecucion pers;
     UCM.IAV.Movimiento.Huir huir;
@@ -25,7 +27,7 @@ public class RatDetector : MonoBehaviour
     void Update()
     {
         lastTimeChanged += Time.deltaTime;
-        var a = Physics.SphereCastAll(transform.position, 3, transform.forward);
+        var a = Physics.SphereCastAll(transform.position, radius, transform.forward);
 
         int i = 0;
         foreach (var obj in a)
@@ -35,9 +37,9 @@ public class RatDetector : MonoBehaviour
                 i++;
                 if (i >= nRatsToScare && lastTimeChanged > timeToChange)
                 {
-                    pers.enabled = false;
+                    pers.peso = 0;
                     huir.objetivo = obj.collider.gameObject;
-                    huir.enabled = true;
+                    huir.peso = 1;
                     lastTimeChanged = 0;
                     return;
                 }
@@ -45,8 +47,8 @@ public class RatDetector : MonoBehaviour
         }
         if (lastTimeChanged > timeToChange)
         {
-            pers.enabled = true;
-            huir.enabled = false;
+            pers.peso = 1;
+            huir.peso = 0;
             lastTimeChanged = 0;
         }
     }
