@@ -10,7 +10,7 @@ Esta práctica consiste en realizar un prototipo de IA dentro de un pequeño ent
 
 La idea principal de la práctica es conseguir los siguientes comportamientos:
 
- 1. **El perro** deberá de *perseguir al flautista* de manera que prediga el movimiento del flautista, y quedarse a una distancia de él.
+ 1. **El perro** deberá de *seguir al flautista* de manera que prediga el movimiento del flautista, y quedarse a una distancia de él.
  2. **El perro** ha de huir si *hay tres o más ratas cerca suya*.
  3. **Las ratas** han de moverse erráticamente cuando *el flautista no toca la flauta*
  4. **Las ratas**, al escuchar la flauta, tienen que *seguir al flautista*, y *ordenarse entre ellas en formación*. Tienen que tener separación entre ellas y quedarse a una distancia del flautista.
@@ -18,28 +18,29 @@ La idea principal de la práctica es conseguir los siguientes comportamientos:
 
 ## Punto de partida
 Se parte de un proyecto base de Unity proporcionado por el profesor aquí:
-https://github.com/Narratech/IAV-P1
+https://github.com/Narratech/IAV-P1.
 
-Se dispone de una escena en Unity que consta de un entorno por el cual el jugador podrá moverse; además de una serie de obstáculos, como arboles o casas. También contiene las entidades del perro, las ratas y el jugador; el perro no hace nada 
-al igual que las ratas, pero estas últimas puedes aumentar o reducir su nº con las teclas O y P respectivamente (cuando se le añadan los scripts a estas entidades se moveran automaticamente siguiendo al jugador o merodeando por el entorno); el jugador, sin embargo, podrá moverse con las teclas WASD y tocar la flauta con el espacio. 
+En resumen, partimos de un proyecto de Unity en el que se nos proporciona una **escena principal** con un **flautista** (el jugador), una **rata** y un **perro**. 
 
-Se puede cambiar la posicion de la cámara con N, el ratio (FPS) con F y recargar la escena con R.
-Hay scripts para darles los comportamientos necesarios a las entidades (los cuales hay que completar).
+En cuanto a código, se nos ha proporcionado varios scripts generales: *Agente, ComportamientoAgente, Dirección* y *GestorJuego*. A un nivel más específico, tenemos scripts para el perro  (*Persecución*, *Huir*), las ratas (*Merodear*), para ambos (*Llegada*) y para el jugador (*ControlJugador, TocarFlauta*). La mayoría de estos últimos scripts **vienen sin hacer**. 
+También se incluyen en el proyecto *prefabs* para el jugador, el perro y las ratas.
+
+Con todo lo anterior, sin cambiar, añadir, quitar ni editar nada, **tenemos un mundo** en el que existen **obstáculos**, una **rata**, un **perro** y un **flautista** (el jugador). El jugador puede *moverse* (WASD/flechas), *tocar la flauta* (espacio), *cambiar la cámara* (N), *activar y desactivar obstáculos* (T), *añadir ratas* (O), *quitar ratas* (P), *cambiar los FPS* (F) y *recargar la escena* (R), indicado al jugador a través de  **una UI** en la que nos muestra una leyenda de los controles, un contador de ratas y otro contador de FPS.
+
 
 ## Diseño de la solución
 
 La manera en la que vamos a afrontar esta práctica es la siguiente:
 
- - Completaremos **el script de seguimiento** que se le aplicará tanto al perro como a las ratas, de manera que puedan *seguir o perseguir al objetivo*.
-
+ - Completaremos **el script de seguimiento** que se le aplicará a las ratas, de manera que puedan *seguir al objetivo*.
  
  - También completaremos **el script** que lé de a las ratas un **movimiento errático** para cuando no estén bajo el control del flautista.
  
- - Finalmente completaremos **el script de huida** del perro para que *se aleje de las ratas* que tenga en su proximidada.
+ - **Crearemos un script de seguimiento** sólo para el perro, pero que **heredará** del *script de seguimiento de las ratas* completado anteriormente.
+ 
+ - Finalmente completaremos **el script de huida** del perro para que *se aleje de las ratas* que tenga en su proximidad. Éste código también heredará del *script de seguimiento de las ratas*.
 
- - También vamos a crear **dos scripts** que hagan de **máquina de estados**: 
-	 - uno de ellos para las ratas, que decidirá si están *bajo la hipnosis del flautista o no* (y aplicará el código de seguimiento o de moviemiento errático). También cogerá el objetivo a seguir para cada rata, que puede ser otra rata o el flautista. El objetivo con esto es que acaben ordenándose en fila india.
-	 - y el otro, para el perro, que aplicará el código de seguimiento o el de huida (dependiendo de *si tiene mas de dos ratas cerca o no*)
+ - También vamos a crear **un script de detección**, que se aplicará tanto al perro como a las ratas, para poder detectar otros objetos alrededor suya y seguir un comportamiento u otro en función de ello.
 
 Pseudocódigo del algoritmo de seguimiento:
 ```
@@ -93,7 +94,7 @@ class Follow:
         return result
 ```
 
-Pseudocódigo del algoritmo de huida:
+Pseudocódigo de la detección de ratas:
 
     function AreRatsNearby(int maxNumOfRats) -> bool 
 	    nearbyObjects = Physics.SphereCast(...)
@@ -105,9 +106,11 @@ Pseudocódigo del algoritmo de huida:
 				    return true 
 			    return false
 
+
+
 Diagrama de la máquina de estado del perro
 
-![Máquina de estados del perro](https://cdn.discordapp.com/attachments/1072955659827556384/1073284400315379733/image.png)
+![Máquina de estados del perro](https://cdn.discordapp.com/attachments/1072955659827556384/1072964346335989841/image.png)
 Diagrama de la máquina de estado de las ratas
 ![Máquina de estado de las ratas](https://cdn.discordapp.com/attachments/1072955659827556384/1072965194038390824/image.png)
 
@@ -127,11 +130,11 @@ Las tareas se han realizado y el esfuerzo ha sido repartido entre los autores.
 | Estado  |  Tarea  |  Fecha  |  
 |:-:|:--|:-:|
 | ✔ | Diseño: Primer borrador | 08/02/2023 |
-|  | Característica A: Mundo virtual | --/--/---- |
-|  | Característica B: Perro persigue al flautista| --/--/---- |
-|  | Característica C: Perro huye de ratas| --/--/---- |
-|  | Característica D: Ratas merodeadoras| --/--/---- |
-|  | Característica E: Ratas hipnotizadas| --/--/---- |
+| ✔ | Característica A: Mundo virtual | 09/02/2023 |
+| ✔ | Característica B: Perro sigue al flautista| 18/02/2023 |
+| ✔ | Característica C: Perro huye de ratas| 18/02/2023 |
+| ✔ | Característica D: Ratas merodeadoras| 22/02/2023 |
+| ✔ | Característica E: Ratas hipnotizadas| 19/02/2023 |
 |   | ... | |
 |  | OPCIONAL |  |
 |  | Generador pseudoaleatorio | --/--/---- |
