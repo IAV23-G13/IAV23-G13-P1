@@ -109,7 +109,7 @@ namespace UCM.IAV.Movimiento
         {
             // Activamos o desactivamos los comportamientos que ocurren si se toca la flauta
             rat.GetComponent<Merodear>().enabled = false;
-                     
+            rat.GetComponent<RatDetectRats>().enabled = true;
             rat.GetComponent<Separacion>().enabled = true;                     
             //perroSepar.enabled = true;
 
@@ -125,7 +125,7 @@ namespace UCM.IAV.Movimiento
         {
             // Activamos o desactivamos los comportamientos que ocurren si no se toca la flauta
             rat.GetComponent<Merodear>().enabled = true;
-            
+            rat.GetComponent<RatDetectRats>().enabled = false;
             rat.GetComponent<Llegada>().enabled = false;
             rat.GetComponent<Separacion>().enabled = false;
             //perroSepar.enabled = false;

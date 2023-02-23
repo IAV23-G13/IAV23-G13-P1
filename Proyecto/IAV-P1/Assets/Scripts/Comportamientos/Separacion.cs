@@ -33,13 +33,41 @@ namespace UCM.IAV.Movimiento
         [SerializeField]
         float decayCoefficient;
 
+        [SerializeField]
+        private int nRatsDetected = 0;
+
+        private Vector3 lastRatPos;
+
         private GameObject[] targets;
 
 
         public override Direccion GetDireccion()
         {
             // IMPLEMENTAR separación
-            return new Direccion();
+
+            var dirLLegada = base.GetDireccion();
+            dirLLegada.lineal = -dirLLegada.lineal * 5;
+            dirLLegada.angular = -dirLLegada.angular;
+            return dirLLegada;
+           
         }
+
+        //void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.gameObject.CompareTag("Rat"))
+        //    {
+        //        nRatsDetected++;
+        //        lastRatPos = other.gameObject.transform.position;
+        //        Debug.Log("pillaRata");
+        //    }
+        //}
+
+        //void OnTriggerExit(Collider other)
+        //{
+        //    if (other.gameObject.CompareTag("Rat"))
+        //    {
+        //        nRatsDetected--;
+        //    }
+        //}
     }
 }
