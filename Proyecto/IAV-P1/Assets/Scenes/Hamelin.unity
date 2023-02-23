@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657695, g: 0.49641138, b: 0.5748176, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,47 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &34809208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3861295050334874256, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5977170052653439588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &34809214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34809208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c928c60a7b121e4494ba1a650284ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nRatsToScare: 2
+  timeToChange: 1
+--- !u!114 &34809215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34809208}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04975c86d88a65349a8c27aebc417ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peso: 1
+  prioridad: 1
+  objetivo: {fileID: 919132148976998258}
+  maxSpeed: 15
+  maxAcceleration: 1000
+  rObjetivo: 2
+  rRalentizado: 3
+  fRalentizado: 0
+  distancia: 7
 --- !u!1001 &96069468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3203,54 +3244,6 @@ Transform:
   m_Father: {fileID: 271571435}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &1719950000 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6408130562690964571, guid: 5ff744207c6a5044ab297c8fc4814fc0,
-    type: 3}
-  m_PrefabInstance: {fileID: 5977170052653439588}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &1719950002
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719950000}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 482aa0c8b46e81e21804f920eb70dc8f, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &1744338531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3836,6 +3829,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 3938823469589161587, guid: 5175d5736886518439bf9a2956a122b4,
+        type: 3}
+      propertyPath: combinarPorPrioridad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4131845400584305642, guid: 5175d5736886518439bf9a2956a122b4,
         type: 3}
       propertyPath: m_Name
@@ -4274,8 +4272,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
-      propertyPath: rObjetivo
+      propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: rObjetivo
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
@@ -4285,7 +4288,7 @@ PrefabInstance:
     - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: rRalentizado
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5100614013107922966, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}

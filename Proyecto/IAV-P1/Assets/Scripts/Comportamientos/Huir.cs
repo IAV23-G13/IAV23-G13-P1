@@ -14,7 +14,7 @@ namespace UCM.IAV.Movimiento
     /// <summary>
     /// Clase para modelar el comportamiento de HUIR a otro agente
     /// </summary>
-    public class Huir : ComportamientoAgente
+    public class Huir : Llegada
     {
         /// <summary>
         /// Obtiene la dirección
@@ -22,8 +22,10 @@ namespace UCM.IAV.Movimiento
         /// <returns></returns>
         public override Direccion GetDireccion()
         {
-            // IMPLEMENTAR HUIR
-            return new Direccion();
+            var dirLLegada = base.GetDireccion();
+            dirLLegada.lineal = -dirLLegada.lineal * 20;
+            dirLLegada.angular = -dirLLegada.angular;
+            return dirLLegada;
         }
     }
 }

@@ -53,17 +53,9 @@ namespace UCM.IAV.Movimiento
         public override Direccion GetDireccion()
         {
             var resultado = new Direccion();
-
-            
-
             float targetSpeed = maxSpeed;
-
-
-
             flau = objetivo.GetComponent<TocarFlauta>();
             mero = this.GetComponent<Merodear>();
-
-            
 
             //Hacer que el objetivo al que siguen sea la ultima rata de la lista a excepcion de la primera que sigue al jugador
             //usando la lista de ratas del TocarFlauta
@@ -127,7 +119,7 @@ namespace UCM.IAV.Movimiento
 
         protected virtual Vector3 GetObjective()
         {
-            if (nRatsDetected < 1 )
+            if (true)
                 return objetivo.transform.position;
             else
                 return lastRatPos;
